@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HastaEasyshops | Online Shopping</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Hasta<span>Easyshops</span>
+        </div>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+        <nav id="mobileMenu">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <button onclick="openCart()">
+                🛒 Cart
+            </button>
+
+            <button>
+                Login
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                Shop Smart.<br>
+
+                <span class="hero-hasta">Hasta</span>
+                <span class="hero-easy">shopEasy.</span>
+            </h1>
+
+            <p>
+                Discover quality products at the best prices.
+                Easy shopping, fast delivery and a better
+                online shopping experience.
+            </p>
+
+            <a href="#products" class="hero-btn">
+                Shop Now
+            </a>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src="image/shopping.png"
+                alt="Online Shopping">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section class="products" id="products">
+
+        <div class="section-title">
+
+            <h2>
+                Featured Products
+            </h2>
+
+            <p>
+                Explore our popular products
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="productSearch"
+                placeholder="🔍 Search products..."
+                onkeyup="searchProducts()">
+
+        </div>
+
+
+        <!-- CATEGORY FILTER -->
+
+        <div class="category-filter" id="categories">
+
+            <button onclick="filterProducts('all')">
+                All Products
+            </button>
+
+            <button onclick="filterProducts('electronics')">
+                Electronics
+            </button>
+
+            <button onclick="filterProducts('fashion')">
+                Fashion
+            </button>
+
+            <button onclick="filterProducts('travel')">
+                Travel
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT CONTAINER -->
+
+        <div class="product-container">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div
+                class="product-card"
+                data-category="electronics">
+
+                <img
+                    src="image/headphones.png"
+                    alt="Wireless Headphones">
+
+                <h3>
+                    Wireless Headphones
+                </h3>
+
+                <p>
+                    Premium sound quality with comfortable design.
+                </p>
+
+                <h4>
+                    ₹2,999
+                </h4>
+
+                <div class="product-buttons">
+
+                    <button
+                        onclick="viewProduct('Wireless Headphones', 2999)">
+
+                        View Details
+
+                    </button>
+
+                    <button
+                        onclick="addToCart('Wireless Headphones', 2999)">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div
+                class="product-card"
+                data-category="electronics">
+
+                <img
+                    src="image/headphones.png"
+                    alt="Smart Watch">
+
+                <h3>
+                    Smart Watch
+                </h3>
+
+                <p>
+                    Smart features with stylish modern design.
+                </p>
+
+                <h4>
+                    ₹1,999
+                </h4>
+
+                <div class="product-buttons">
+
+                    <button
+                        onclick="viewProduct('Smart Watch', 1999)">
+
+                        View Details
+
+                    </button>
+
+                    <button
+                        onclick="addToCart('Smart Watch', 1999)">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div
+                class="product-card"
+                data-category="fashion">
+
+                <img
+                    src="image/headphones.png"
+                    alt="Running Shoes">
+
+                <h3>
+                    Running Shoes
+                </h3>
+
+                <p>
+                    Lightweight and comfortable shoes for daily use.
+                </p>
+
+                <h4>
+                    ₹2,499
+                </h4>
+
+                <div class="product-buttons">
+
+                    <button
+                        onclick="viewProduct('Running Shoes', 2499)">
+
+                        View Details
+
+                    </button>
+
+                    <button
+                        onclick="addToCart('Running Shoes', 2499)">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div
+                class="product-card"
+                data-category="travel">
+
+                <img
+                    src="image/headphones.png"
+                    alt="Travel Backpack">
+
+                <h3>
+                    Travel Backpack
+                </h3>
+
+                <p>
+                    Durable backpack perfect for travel and everyday use.
+                </p>
+
+                <h4>
+                    ₹1,499
+                </h4>
+
+                <div class="product-buttons">
+
+                    <button
+                        onclick="viewProduct('Travel Backpack', 1499)">
+
+                        View Details
+
+                    </button>
+
+                    <button
+                        onclick="addToCart('Travel Backpack', 1499)">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="about-content">
+
+            <h2>
+                About HastaEasyshops
+            </h2>
+
+            <p>
+                HastaEasyshops is a modern online shopping platform
+                designed to make shopping simple, convenient and reliable.
+            </p>
+
+            <p>
+                Discover quality products at affordable prices with
+                an easy and user-friendly shopping experience.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="contact-content">
+
+            <h2>
+                Contact Us
+            </h2>
+
+            <p>
+                Have a question or need help?
+                We are happy to assist you.
+            </p>
+
+            <div class="contact-info">
+
+                <p>
+                    📞 Phone: +91 9342438683
+                </p>
+
+                <p>
+                    📧 Email: support@hastaeasyshops.com
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CART PANEL ================= -->
+
+    <div
+        class="cart-panel"
+        id="cartPanel">
+
+        <div class="cart-header">
+
+            <h2>
+                Your Cart
+            </h2>
+
+            <button onclick="closeCart()">
+                ✕
+            </button>
+
+        </div>
+
+
+        <div id="cartItems">
+
+            <p>
+                Your cart is empty.
+            </p>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <h3>
+                Total: ₹<span id="cartTotal">0</span>
+            </h3>
+
+            <button
+                class="checkout-btn"
+                onclick="openCheckout()">
+
+                Checkout
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= PRODUCT DETAILS MODAL ================= -->
+
+    <div
+        class="product-modal"
+        id="productModal">
+
+        <div class="product-modal-content">
+
+            <button
+                class="modal-close"
+                onclick="closeProductModal()">
+
+                ✕
+
+            </button>
+
+            <h2 id="modalProductName">
+                Product Name
+            </h2>
+
+            <p id="modalProductDescription">
+                Product description
+            </p>
+
+            <h3 id="modalProductPrice">
+                ₹0
+            </h3>
+
+            <button id="modalCartButton">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= CHECKOUT MODAL ================= -->
+
+    <div
+        class="checkout-modal"
+        id="checkoutModal">
+
+        <div class="checkout-content">
+
+            <button
+                class="checkout-close"
+                onclick="closeCheckout()">
+
+                ✕
+
+            </button>
+
+            <h2>
+                Checkout
+            </h2>
+
+            <p>
+                Enter your details to place your order.
+            </p>
+
+
+            <form id="checkoutForm">
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Full Name"
+                    required>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="Phone Number"
+                    required>
+
+                <textarea
+                    id="customerAddress"
+                    placeholder="Delivery Address"
+                    required></textarea>
+
+                <button type="submit">
+                    Place Order
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ORDER SUCCESS ================= -->
+
+    <div
+        class="success-modal"
+        id="successModal">
+
+        <div class="success-content">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Order Placed Successfully!
+            </h2>
+
+            <p>
+                Thank you for your order.
+                We will contact you soon.
+            </p>
+
+            <button onclick="closeSuccessModal()">
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <h2>
+                HastaEasyshops
+            </h2>
+
+            <p>
+                Shop smart. Shop easy.
+            </p>
+
+            <p class="copyright">
+                © 2026 HastaEasyshops. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
