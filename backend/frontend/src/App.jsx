@@ -9,17 +9,16 @@ import Contact from './pages/Contact'
 import Checkout from './pages/Checkout'
 import AdminOrders from './pages/AdminOrders'
 import AdminProducts from './pages/AdminProducts'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Terms from './pages/Terms'
 
 import './App.css'
 
 function Home() {
   return (
     <main>
-
       <section className="hero-section">
-
         <div className="hero-overlay">
-
           <div className="hero-content">
 
             <span className="hero-badge">
@@ -38,7 +37,6 @@ function Home() {
             </p>
 
             <div className="hero-buttons">
-
               <Link to="/products" className="shop-now-btn">
                 🛒 Shop Now →
               </Link>
@@ -51,13 +49,10 @@ function Home() {
               >
                 💬 WhatsApp Us
               </a>
-
             </div>
 
           </div>
-
         </div>
-
       </section>
 
       <section className="trust-section">
@@ -83,16 +78,13 @@ function Home() {
         </div>
 
       </section>
-
     </main>
   )
 }
 
 function App() {
-
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem('hastaCart')
-
     return savedCart ? JSON.parse(savedCart) : []
   })
 
@@ -101,15 +93,12 @@ function App() {
   }, [cart])
 
   const addToCart = (product) => {
-
     setCart((currentCart) => {
-
       const existingProduct = currentCart.find(
         (item) => item._id === product._id
       )
 
       if (existingProduct) {
-
         return currentCart.map((item) =>
           item._id === product._id
             ? {
@@ -118,7 +107,6 @@ function App() {
               }
             : item
         )
-
       }
 
       return [
@@ -128,12 +116,10 @@ function App() {
           quantity: 1,
         },
       ]
-
     })
   }
 
   const increaseQuantity = (id) => {
-
     setCart((currentCart) =>
       currentCart.map((item) =>
         item._id === id
@@ -144,11 +130,9 @@ function App() {
           : item
       )
     )
-
   }
 
   const decreaseQuantity = (id) => {
-
     setCart((currentCart) =>
       currentCart
         .map((item) =>
@@ -161,15 +145,12 @@ function App() {
         )
         .filter((item) => item.quantity > 0)
     )
-
   }
 
   const removeFromCart = (id) => {
-
     setCart((currentCart) =>
       currentCart.filter((item) => item._id !== id)
     )
-
   }
 
   const clearCart = () => {
@@ -183,9 +164,7 @@ function App() {
   )
 
   return (
-
     <>
-
       <header className="navbar">
 
         <div className="logo">
@@ -193,7 +172,6 @@ function App() {
         </div>
 
         <nav>
-
           <Link to="/">Home</Link>
           <Link to="/products">Products</Link>
           <Link to="/categories">Categories</Link>
@@ -201,7 +179,6 @@ function App() {
           <Link to="/contact">Contact</Link>
           <Link to="/admin/orders">Admin</Link>
           <Link to="/admin/products">Products Admin</Link>
-
         </nav>
 
         <Link to="/cart" className="cart-link">
@@ -210,10 +187,12 @@ function App() {
 
       </header>
 
-
       <Routes>
 
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
         <Route
           path="/products"
@@ -238,6 +217,16 @@ function App() {
         <Route
           path="/contact"
           element={<Contact />}
+        />
+
+        <Route
+          path="/privacy-policy"
+          element={<PrivacyPolicy />}
+        />
+
+        <Route
+          path="/terms"
+          element={<Terms />}
         />
 
         <Route
@@ -276,8 +265,27 @@ function App() {
 
       </Routes>
 
-    </>
+      <footer className="site-footer">
 
+        <div className="footer-links">
+
+          <Link to="/privacy-policy">
+            Privacy Policy
+          </Link>
+
+          <Link to="/terms">
+            Terms & Conditions
+          </Link>
+
+        </div>
+
+        <p>
+          © 2026 Hasta ShopEasy. All Rights Reserved.
+        </p>
+
+      </footer>
+
+    </>
   )
 }
 

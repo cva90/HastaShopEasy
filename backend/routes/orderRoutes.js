@@ -79,6 +79,29 @@ router.get("/", async (req, res) => {
         });
     }
 });
+// GET ORDER BY ORDER NUMBER
+router.get("/track/:orderNumber", async (req, res) => {
+    try {
+        const order = await Order.findOne({
+            orderNumber: req.params.orderNumber
+        });
+
+        if (!order) {
+            return res.status(404).json({
+                message: "Order not found"
+            });
+        }
+
+        res.status(200).json(order);
+
+    } catch (error) {
+        console.error("Track Order Error ❌", error);
+
+        res.status(500).json({
+            message: "Failed to track order."
+        });
+    }
+});
 // UPDATE ORDER STATUS
 router.put("/:id/status", async (req, res) => {
     try {

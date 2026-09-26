@@ -12,6 +12,10 @@ import AdminOrders from './pages/AdminOrders'
 import Admin from './pages/Admin'
 import AdminDashboard from './pages/AdminDashboard'
 import AdminProducts from './pages/AdminProducts'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Terms from './pages/Terms'
+import ReturnRefund from './pages/ReturnRefund'
+import OrderTracking from './pages/OrderTracking'
 
 import './App.css'
 
@@ -346,7 +350,7 @@ function App() {
           element={
             <Products
               addToCart={addToCart}
-            />
+         />
           }
         />
 
@@ -367,7 +371,20 @@ function App() {
           path="/contact"
           element={<Contact />}
         />
+<Route
+  path="/privacy-policy"
+  element={<PrivacyPolicy />}
+/>
 
+<Route
+  path="/terms"
+  element={<Terms />}
+/>
+<Route
+  path="/return-refund"
+  element={<ReturnRefund />}
+/>
+<Route path="/track-order" element={<OrderTracking />} />
 
         <Route
           path="/cart"
@@ -486,11 +503,19 @@ function App() {
 
       <footer>
 
-        <p>
-          © 2026 Hasta ShopEasy. All Rights Reserved.
-        </p>
+  <p>
+    © 2026 Hasta ShopEasy. All Rights Reserved.
+  </p>
 
-      </footer>
+  <div className="footer-links">
+  <Link to="/privacy-policy">Privacy Policy</Link>
+  <span>|</span>
+  <Link to="/terms">Terms & Conditions</Link>
+  <span>|</span>
+  <Link to="/return-refund">Return & Refund Policy</Link>
+</div>
+
+</footer>
 
     </div>
   )

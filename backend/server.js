@@ -38,6 +38,7 @@ mongoose
     .connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("MongoDB Connected Successfully ✅");
+        console.log("Database Name:", mongoose.connection.name);
 
         app.listen(PORT, () => {
             console.log(`Server running at http://localhost:${PORT}`);

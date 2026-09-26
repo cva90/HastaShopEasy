@@ -4,11 +4,13 @@ import { Link, useNavigate } from 'react-router-dom'
 function AdminOrders() {
   const navigate = useNavigate()
   const [orders, setOrders] = useState([])
+  const [statusFilter, setStatusFilter] = useState('All')
+  const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true)
   const [selectedOrder, setSelectedOrder] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/orders')
+    fetch('https://hastashopeasy-ryw4.onrender.com/api/orders')
       .then((response) => response.json())
       .then((data) => {
         setOrders(data)
@@ -23,7 +25,7 @@ function AdminOrders() {
   const updateStatus = async (orderId, newStatus) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/orders/${orderId}/status`,
+  `https://hastashopeasy-ryw4.onrender.com/api/orders/${orderId}/status`,
         {
           method: 'PUT',
           headers: {
@@ -63,6 +65,7 @@ function AdminOrders() {
   }
 
   if (loading) {
+
     return (
       <div className="admin-orders-page">
         <h2>Loading orders...</h2>
@@ -83,6 +86,19 @@ function AdminOrders() {
     (order) => order.status === 'Delivered'
   ).length
 
+  const filteredOrders =
+  statusFilter === 'All'
+    ? orders
+    : orders.filter((order) => order.status === statusFilter)
+
+    const ordersPerPage = 5
+
+const startIndex = (currentPage - 1) * ordersPerPage
+const currentOrders = filteredOrders.slice(
+  startIndex,
+  startIndex + ordersPerPage
+)
+
   return (
     <main className="admin-orders-page">
 
@@ -93,6 +109,42 @@ function AdminOrders() {
     <h1>Customer Orders</h1>
     <p>View and manage all customer orders.</p>
   </div>
+
+  <div className="order-filters">
+  <button onClick={() => setStatusFilter('All')}>
+    All Orders
+  </button>
+
+<button
+  onClick={() => {
+    setStatusFilter('Processing')
+    setCurrentPage(1)
+  }}
+>
+  Processing
+</button>
+
+<button
+  onClick={() => {
+    setStatusFilter('Shipped')
+    setCurrentPage(1)
+  }}
+>
+  Shipped
+</button>
+
+  <button onClick={() => setStatusFilter('Pending')}>
+    Pending
+  </button>
+
+  <button onClick={() => setStatusFilter('Delivered')}>
+    Delivered
+  </button>
+
+  <button onClick={() => setStatusFilter('Cancelled')}>
+    Cancelled
+  </button>
+</div>
 
   <div className="admin-orders-actions">
 
@@ -168,9 +220,10 @@ function AdminOrders() {
               </tr>
             </thead>
 
-            <tbody>
-
-              {orders.map((order) => (
+            
+              <tbody>
+  {currentOrders.map((order) => (
+              
 
                 <tr key={order._id}>
 
@@ -235,6 +288,14 @@ function AdminOrders() {
             </tbody>
 
           </table>
+
+         <div className="orders-pagination">
+  <button onClick={() => setCurrentPage(1)}>1</button>
+
+  <button onClick={() => setCurrentPage(2)}>2</button>
+
+  <button onClick={() => setCurrentPage(3)}>3</button>
+</div>
 
         </div>
 

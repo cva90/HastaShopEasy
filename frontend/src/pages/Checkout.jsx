@@ -59,7 +59,7 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const response = await fetch('https://hastashopeasy.onrender.com/api/orders', {
+    const response = await fetch('https://hastashopeasy-ryw4.onrender.com/api/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -212,13 +212,16 @@ const handleSubmit = async (e) => {
             />
 
             <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
+  type="tel"
+  name="phone"
+  placeholder="Phone Number"
+  value={formData.phone}
+  onChange={handleChange}
+  pattern="[6-9][0-9]{9}"
+  maxLength="10"
+  title="9342438683"
+  required
+/>
 
             <textarea
               name="address"

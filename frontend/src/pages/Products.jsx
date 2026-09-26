@@ -15,7 +15,7 @@ function Products({ addToCart }) {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          'http://localhost:5000/api/products'
+      'https://hastashopeasy.onrender.com/api/products'
         )
 
         const data = await response.json()

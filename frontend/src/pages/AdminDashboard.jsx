@@ -6,7 +6,7 @@ function AdminDashboard() {
   const [totalProducts, setTotalProducts] = useState(0)
 const [totalOrders, setTotalOrders] = useState(0)
 useEffect(() => {
-  fetch('http://localhost:5000/api/products')
+  fetch('https://hastashopeasy.onrender.com/api/products')
     .then((response) => response.json())
     .then((data) => {
       setTotalProducts(data.length)
@@ -15,7 +15,7 @@ useEffect(() => {
       console.error('Error fetching products:', error)
     })
 
-  fetch('http://localhost:5000/api/orders')
+  fetch('https://hastashopeasy.onrender.com/api/orders')
     .then((response) => response.json())
     .then((data) => {
       setTotalOrders(data.length)

@@ -7424,3 +7424,167 @@ footer {
   }
 
 }
+/* Footer Legal Links */
+.footer-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+/* =================================
+   LEGAL PAGES
+================================= */
+
+.legal-page {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: #f8fafc;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 45px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.legal-container h1 {
+  margin-bottom: 10px;
+  font-size: 38px;
+}
+
+.legal-updated {
+  margin-bottom: 30px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.legal-container h2 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.legal-container p {
+  line-height: 1.8;
+  color: #475569;
+}
+
+.legal-container ul {
+  padding-left: 25px;
+  line-height: 1.9;
+  color: #475569;
+}
+/* =================================
+   LEGAL PAGES - PREMIUM POLISH
+================================= */
+
+.legal-container h1 {
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.legal-container h2 {
+  color: #1e293b;
+  border-left: 4px solid #155eef;
+  padding-left: 12px;
+}
+
+.legal-container p {
+  font-size: 15.5px;
+}
+
+.legal-container li {
+  margin-bottom: 6px;
+}
+
+.legal-container ul {
+  margin-bottom: 20px;
+}
+
+.legal-updated {
+  text-align: center;
+  font-style: italic;
+}
+
+.legal-container a {
+  color: #155eef;
+}
+
+@media (max-width: 600px) {
+  .legal-page {
+    padding: 30px 12px;
+  }
+
+  .legal-container {
+    padding: 25px 20px;
+    border-radius: 12px;
+  }
+
+  .legal-container h1 {
+    font-size: 30px;
+  }
+
+  .legal-container h2 {
+    font-size: 20px;
+  }
+
+  .legal-container p,
+  .legal-container li {
+    font-size: 14.5px;
+  }
+}
+/* Order Filters */
+.order-filters {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.order-filters button {
+  padding: 9px 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.order-filters button:hover {
+  background: #f1f5f9;
+}
+.orders-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 25px 0;
+}
+
+.orders-pagination button {
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.orders-pagination button:hover {
+  background: #f1f5f9;
+}

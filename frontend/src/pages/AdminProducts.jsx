@@ -24,7 +24,7 @@ function AdminProducts() {
     try {
 
       const response = await fetch(
-        'http://localhost:5000/api/products'
+        'https://hastashopeasy.onrender.com/api/products'
       )
 
       const data = await response.json()
@@ -113,9 +113,9 @@ const filteredProducts = products.filter((product) =>
 
       const url = editingProduct
 
-        ? `http://localhost:5000/api/products/${editingProduct._id}`
+        ? `https://hastashopeasy.onrender.com/api/products/${editingProduct._id}`
 
-        : 'http://localhost:5000/api/products'
+        : 'https://hastashopeasy.onrender.com/api/products'
 
 
       const method = editingProduct
@@ -234,7 +234,7 @@ const filteredProducts = products.filter((product) =>
 
       const response = await fetch(
 
-        `http://localhost:5000/api/products/${productId}`,
+        `https://hastashopeasy.onrender.com/api/products/${productId}`,
 
         {
           method: 'DELETE',
