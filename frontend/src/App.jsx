@@ -295,6 +295,10 @@ function App() {
           <Link to="/contact" onClick={closeMenu}>
             Contact
           </Link>
+          
+          <Link to="/track-order" onClick={closeMenu}>
+  📦 Track Order
+</Link>
 
           <Link
             to="/admin"
