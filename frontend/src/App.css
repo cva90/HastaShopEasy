@@ -7681,7 +7681,7 @@ footer {
   border-color: #155eef;
 }
 
-..tracking-form button {
+.tracking-form button {
   width: 100%;
   padding: 14px 20px;
   border: none;
@@ -7750,7 +7750,7 @@ footer {
   color: #444;
 }
 
-..tracking-item {
+.tracking-item {
   display: flex;
   flex-direction: column;
   gap: 0;
